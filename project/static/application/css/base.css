@@ -20,6 +20,10 @@ nav {
     margin: 3% 5%;
 }
 
+th, td {
+    font-size: 60%;
+}
+
 .logo {
 	display: flex;
     flex-direction: row;

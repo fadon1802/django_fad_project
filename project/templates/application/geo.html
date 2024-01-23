@@ -29,6 +29,19 @@
     <div class='body' id='block'>
         {% for item in data %}
         <img class="block__img" src="{{ item.image.url }}">
+        <table class="block__table">
+            <caption>{{ item.title }}</caption>
+            <tr>
+                {% for key in item.dict.keys %}
+                <th>{{ key }}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for value in item.dict.values %}
+                <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+        </table>
         <div class='break-line'></div>
         {% endfor %}
     </div>

@@ -27,7 +27,7 @@
     <div class='body' id='block'>
         {% for item in data %}
         <img class="block__img" src="{{ item.image.url }}">
-        <table>
+        <table class="block__table">
             <caption>{{ item.title }}</caption>
             <tr>
                 {% for key in item.dict.keys %}

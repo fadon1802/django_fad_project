@@ -1,0 +1,62 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'application/css/base.css' %}">
+    <title>Главная</title>
+    <link type="image/x-icon" rel="icon" href="{% static 'application/img/favicon/favicon-32x32.png' %}">
+</head>
+<body>
+<section class='logo'>
+    <img class="logo-icon" src='{% static "application/img/logo.png" %}'>
+    <p style="font-size: 40px; color: #2576f7;">Fadon Project</p>
+</section>
+<nav>
+    <ul class='link-list'>
+        <li class="link-item"><a href="/">Главная</a></li>
+        <li class="link-item"><a href="/demand/">Востребованность</a></li>
+        <li class="link-item"><a href="/geo/">География</a></li>
+        <li class="link-item"><a href="/skills/">Ключевые навыки</a></li>
+        <li class="link-item"><a href="/vacancies/">Последние вакансии</a></li>
+    </ul>
+</nav>
+<section>
+    <div class='page__title'>
+        <p style="font-size: 60px; color: white;">
+            IOS-разработчик
+        </p>
+    </div>
+    <div class='body' id='block'>
+        {% for item in data %}
+        <p class='block__name'>{{ item.title }}</p>
+        <div class="flex-container">
+            <p class='block__text'>{{ item.description }}</p>
+            {% if item.image %}
+            <img class='block__img' src="{{ item.image.url }}">
+            {% endif %}
+        </div>
+        <div class='break-line'></div>
+        {% endfor %}
+    </div>
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const links = document.querySelectorAll('.link-item a');
+
+    links.forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add('current');
+      }
+    });
+  });
+
+</script>
+</body>
+<footer>
+    <p>Фадеев Антон Павлович</p>
+    <p>РИ-220935</p>
+</footer>
+</html>

@@ -1,0 +1,53 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        География
+    </title>
+    <link type="image/x-icon" rel="icon" href="{% static 'application/img/favicon/favicon-32x32.png' %}">
+    <link rel="stylesheet" href="{% static 'application/css/base.css' %}">
+</head>
+<body>
+<section class='logo'>
+    <img class="logo-icon" src='{% static "application/img/logo.png" %}'>
+    <p style="font-size: 40px; color: #2576f7;">Fadon Project</p>
+</section>
+<nav>
+    <ul class='link-list'>
+        <li class="link-item"><a href="/">Главная</a></li>
+        <li class="link-item"><a href="/demand/">Востребованность</a></li>
+        <li class="link-item"><a href="/geo/">География</a></li>
+        <li class="link-item"><a href="/skills/">Ключевые навыки</a></li>
+        <li class="link-item"><a href="/vacancies/">Последние вакансии</a></li>
+    </ul>
+</nav>
+<section>
+    <div class='body' id='block'>
+        {% for item in data %}
+        <img class="block__img" src="{{ item.image.url }}">
+        <div class='break-line'></div>
+        {% endfor %}
+    </div>
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const links = document.querySelectorAll('.link-item a');
+
+    links.forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add('current');
+      }
+    });
+  });
+
+</script>
+</body>
+<footer>
+    <p>Фадеев Антон Павлович</p>
+    <p>РИ-220935</p>
+</footer>
+</html>
